@@ -1,0 +1,7 @@
+@font-face {
+  font-family: "Proxima Nova";
+
+  src:
+  url('ProximaNova.ttf')  format('truetype'); /* Safari, Android, iOS */
+  font-weight: normal;
+}
