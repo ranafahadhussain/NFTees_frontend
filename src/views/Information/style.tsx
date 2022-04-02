@@ -8,11 +8,11 @@ export const CartInformationContainer = styled.div`
 export const FlexContainer = styled.div`
   display: flex;
   .first-col {
-    width: 60%;
+    width: 55%;
     border-right: 0.5px solid #979797;
   }
   .second-col {
-    width: 40%;
+    width: 45%;
   }
   ${({ theme }) => theme.mediaQueries.MaxSm} {
     flex-direction: column-reverse;
