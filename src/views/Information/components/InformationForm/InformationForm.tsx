@@ -4,6 +4,7 @@ import styled, { useTheme } from "styled-components";
 import { FormHeading } from "views/Information/style";
 import ReturnDark from "assets/images/icons/returnDarkIcon.svg";
 import ReturnLight from "assets/images/icons/returnLightIcon.svg";
+import { CheckBoxIcon } from "components/Svg";
 
 const InformationForm: React.FC = () => {
   const { isDark } = useTheme();
@@ -13,6 +14,10 @@ const InformationForm: React.FC = () => {
       <div className="contactSection">
         <FormHeading>Contact information</FormHeading>
         <InputField placeHolder="Country/Resion" />
+        <CheckBoxField>
+          <CheckBoxIcon width={"14px"} isChecked={true} />
+          <span className="text">Email me with news and offers</span>
+        </CheckBoxField>
       </div>
 
       <div className="shippingSection">
@@ -42,21 +47,20 @@ const InformationForm: React.FC = () => {
         </div>
 
         <InputField placeHolder="Phone" />
-
-        
+        <CheckBoxField className="mb-4">
+          <CheckBoxIcon width={"14px"} isChecked={false} />
+          <span className="text">	Save this information for next time</span>
+        </CheckBoxField>
       </div>
 
-
       <div className="d-flex actionSection">
-          <ReturnButton>
-            <img src={isDark ? ReturnLight :  ReturnDark} alt="" />
-            Return to Cart
-          </ReturnButton>
+        <ReturnButton>
+          <img src={isDark ? ReturnLight : ReturnDark} alt="" />
+          Return to Cart
+        </ReturnButton>
 
-          <CartActionButton>
-          Continue to shipping 
-          </CartActionButton>
-        </div>
+        <CartActionButton>Continue to shipping</CartActionButton>
+      </div>
     </InformationFormContainer>
   );
 };
@@ -76,7 +80,8 @@ const InformationFormContainer = styled.div`
     }
   }
   .actionSection {
-    justify-content : space-between;
+    justify-content: space-between;
+    padding : 30px 0px;
   }
 
   ${({ theme }) => theme.mediaQueries.MaxSm} {
@@ -84,5 +89,18 @@ const InformationFormContainer = styled.div`
     .actionSection {
       flex-direction: column;
     }
+  }
+`;
+
+const CheckBoxField = styled.div`
+display: flex;
+    align-items: center;
+  .text {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 10px;
+    color: ${({ theme }) => theme.colors.blackWhite};
+    margin-left :10px;
+
   }
 `;
